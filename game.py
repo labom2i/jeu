@@ -4,14 +4,38 @@ from bucket import Bucket
 class Game :
     
     def __init__(self, turns: int, dices: int, players_names : list) :
-        
         self.players = [Player(name) for name in players_names]
         self.dices = dices
         self.turns = turns
 
+    @property
+    def dices(self):
+        return self._dices  
+      
+    @dices.setter
+    def dices(self, value):
+        self._dices = value
+ 
+ 
+    @property
+    def turns(self):
+        return self._turns 
+    
+    @turns.setter
+    def turns(self, value):
+        self._turns = value    
+           
+            
+    @property
+    def players(self):
+        return self._players
+    
+    @players.setter
+    def players(self, value):
+        self._players = value                
+    
             
     def launch(self) :
-        
         for turn in range(self.turns) :
             for player in self.players :
                 bucket = Bucket(self.dices)

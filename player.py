@@ -7,13 +7,23 @@ class Player :
         self.name = name
         self.score = 0
         
-    def getName(self) :
-        ''' Méthode qui retourne le nom du joueur '''
-        return self.name
+    @property
+    def name(self):
+        return self._name
     
-    def getScore(self) :
-        ''' Méthode qui retourne le score du joueur '''
-        return self.score
+    @name.setter
+    def name(self, value):
+        self._name = value
+        
+        
+    @property
+    def score(self):
+        return self._score
+    
+    @score.setter
+    def score(self, value):
+        self._score = value
+
     
     def play(self, Bucket : Bucket) :
         ''' 
@@ -21,11 +31,10 @@ class Player :
             Récupère le gobelet du joueur (Bucket en paramètre)
             Et le lance. (Pitch).
             Puis incrémente le score du joueur (Total de tous ses lancers)
-        
         '''
         Bucket.pitch()    
         for Dice in Bucket.dices :
-            self.score += Dice.getValue()
+            self.score += Dice.value
             
     def showScore(self):
         ''' Méthode qui affiche le score du joueur en console '''

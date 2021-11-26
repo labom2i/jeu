@@ -38,7 +38,7 @@ class Bucket :
         for i in range(self.nb_dices):
             dice = Dice()
             self.dices.append(dice)
-            self.bucket_value += dice.getValue()
+            self.bucket_value += dice.value
             
     def showScore(self):
         '''Afficher en console le score du dernier lancer'''

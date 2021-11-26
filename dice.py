@@ -11,10 +11,14 @@ class Dice :
     def __init__(self):
         self.value = 0
         self.pitch()
-    
-    def getValue(self):
-        '''Retourne la valeur du dé'''
-        return self.value
+        
+        
+    @property
+    def value(self):
+        return self._value
+    @value.setter
+    def value(self, value):
+        self._value = value
     
     def pitch(self):
         ''' Génère une valeur aléatoire comprise entre 1 et 6 et la définit entant que
